@@ -1,0 +1,104 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+
+<html>
+   
+   <head>
+      <title>Form Validation</title>
+      
+      <script type="text/javascript">
+      function validate()
+      {
+      
+         if( document.myForm.Name.value == "" )
+         {
+            alert( "Please provide your name!" );
+            document.myForm.Name.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.EMail.value == "" )
+         {
+            alert( "Please provide your Email!" );
+            document.myForm.EMail.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.TelNo.value == "" ||
+         isNaN( document.myForm.TelNo.value ) ||
+         document.myForm.TelNo.value.length != 10 )
+         {
+            alert( "Mobile number must contain 10 numbers" );
+            document.myForm.TelNo.focus() ;
+            return false;
+         }
+         
+         if( document.myForm.Gender.value == "-1" )
+         {
+            alert( "Please provide your Gender" );
+            return false;
+         }
+         
+         if( document.myForm.TypeofAccount.value == "-1" )
+         {
+            alert( "Please provide your Account Type" );
+            return false;
+         }
+         return( true );
+      }
+   
+</script>
+      
+   </head>
+   
+   <body>
+   <h2>New User Registration</h2>
+      <form name="myForm" onsubmit="return(validate());">
+         <table cellspacing="2" cellpadding="4" border="0">
+            
+            <tr>
+               <td align="right">Name</td>
+               <td><input type="text" name="Name" /></td>
+            </tr>
+                                   
+            <tr>
+               <td align="right">Gender</td>
+               <td>
+                  <select name="Gender">
+                     <option value="-1" selected>[choose yours]</option>
+                     <option value="1">Male</option>
+                     <option value="2">Female</option>
+                     </select>
+               </td>
+            </tr>
+            
+            <tr>
+               <td align="right">EMail</td>
+               <td><input type="text" name="EMail" /></td>
+            </tr>
+            
+            <tr>
+               <td align="right">Mobile No </td>
+               <td><input type="text" name="TelNo" /></td>
+            </tr>
+            
+            <tr>
+               <td align="right">Type of Account</td>
+               <td>
+                  <select name="Type of Account">
+                     <option value="-1" selected>[choose yours]</option>
+                     <option value="1">Savings Account</option>
+                     <option value="2">Current Account</option>
+                     </select>
+               </td>
+            </tr>
+                        
+            <tr>
+               <td align="right"></td>
+               <td><input type="submit" value="Submit" /></td>
+            </tr>
+            
+         </table>
+      </form>
+      
+   </body>
+</html>
